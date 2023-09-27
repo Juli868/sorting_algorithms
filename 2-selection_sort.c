@@ -6,8 +6,8 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j;
-	int temp, counter, hold;
+	size_t i, j, counter;
+	int temp, hold;
 
 	if (size <= 0)
 		return;
@@ -25,9 +25,12 @@ void selection_sort(int *array, size_t size)
 			else
 				continue;
 		}
-		hold = array[i];
-		array[i] = temp;
-		array[counter] = hold;
-		print_array(array, size);
+		if (counter != i)
+		{
+			hold = array[i];
+			array[i] = temp;
+			array[counter] = hold;
+			print_array(array, size);
+		}
 	}
 }
